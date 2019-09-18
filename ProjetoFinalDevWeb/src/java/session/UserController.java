@@ -88,11 +88,14 @@ public class UserController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-         HttpSession session = req.getSession();
-         session.invalidate();
-         resp.sendRedirect("index.jsp");
+        String action = req.getParameter("action");
+        switch(action) {
+           case "logout":
+                HttpSession session = req.getSession();
+                session.invalidate();
+                resp.sendRedirect("index.jsp");
+                break;
+        }
     }
     
-    
-   
 }
