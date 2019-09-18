@@ -79,7 +79,8 @@ public class UsersDao extends Dao{
     }
     
     @Override
-    public int update(User user) throws SQLException {
+    public int update(Object object) throws SQLException {
+        User user = (User) object;
         Statement stmt = super.conn.createStatement();
         String query = String.format(
                 "UPDATE users SET name = '?', email = '?', pass = '?', role = '?') WHERE id = ?;",
@@ -93,7 +94,8 @@ public class UsersDao extends Dao{
     }
     
     @Override
-    public int insert(User user) throws SQLException{
+    public int insert(Object object) throws SQLException{
+        User user = (User) object;
         Statement stmt = super.conn.createStatement();
         String query = String.format(
                 "INSERT INTO users(name, email, pass, role) VALUES ('%s','%s','%s','%s')",
