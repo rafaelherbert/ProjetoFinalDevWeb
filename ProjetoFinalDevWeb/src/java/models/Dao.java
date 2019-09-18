@@ -6,7 +6,7 @@
 package models;
 
 import com.mysql.jdbc.Connection;
-import database_management.Database;
+import database.Database;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -24,7 +24,7 @@ abstract class Dao extends Database{
     
     abstract List getAll() throws SQLException;
     abstract List query(String query) throws SQLException;
-    abstract User selectById(int id) throws SQLException;
+    abstract Object selectById(int id) throws SQLException;
     abstract int update(User user) throws SQLException;
     abstract int insert(User user) throws SQLException;
     abstract int deleteById(int id) throws SQLException;

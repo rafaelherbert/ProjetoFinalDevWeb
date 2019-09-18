@@ -5,6 +5,7 @@
  */
 package models;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -114,4 +115,15 @@ public class UsersDao extends Dao{
         return stmt.executeUpdate(query);
     }
     
+    public User login(User user) throws SQLException {
+        PreparedStatement stmt = super.conn.prepareStatement("SELECT * FROM users WHERE email = ? and pass = ?");
+        stmt.setString(1, user.getEmail());
+        stmt.setString(2, user.getPass());
+        ResultSet result = stmt.executeQuery();
+        if (result.next()) {
+            return this.selectById(result.getInt("id"));
+        } else {
+            return null;
+        }
+    }
 }
