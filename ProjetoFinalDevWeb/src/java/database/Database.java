@@ -20,7 +20,7 @@ public class Database {
     public Database() throws SQLException, ClassNotFoundException {
         Class.forName("com.mysql.jdbc.Driver");
         this.conn = (Connection) DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/desenvolvimento_web",
+                "jdbc:mysql://localhost:3307/desenvolvimento_web",
                 "dev_web",
                 "Mamae#123"
         ); 

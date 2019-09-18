@@ -63,7 +63,7 @@ public class ProductsDao extends Dao{
         Statement stmt = super.conn.createStatement();
         String query = String.format("SELECT * FROM products where id = %s", id);
         ResultSet result = stmt.executeQuery(query);
-        
+        Product product = new Product();
         if (result.next()){
             product.setId(result.getInt("id"));
             product.setPrice(result.getString("price"));
@@ -78,29 +78,29 @@ public class ProductsDao extends Dao{
     
     @Override
     public int update(Object object) throws SQLException {
-        User user = (User) object;
+        Product product = (Product) object;
         Statement stmt = super.conn.createStatement();
         String query = String.format(
-                "UPDATE users SET name = '?', email = '?', pass = '?', role = '?') WHERE id = ?;",
-                user.name,
-                user.email,
-                user.pass,
-                user.role,
-                user.id
+                "UPDATE users SET price = '?', img_url = '?', brand = '?', category = '?') WHERE id = ?;",
+                product.price,
+                product.img_url,
+                product.brand,
+                product.category,
+                product.id
         );
         return stmt.executeUpdate(query);
     }
     
     @Override
     public int insert(Object object) throws SQLException{
-        User user = (User) object;
+        Product product = (Product) object;
         Statement stmt = super.conn.createStatement();
         String query = String.format(
-                "INSERT INTO users(name, email, pass, role) VALUES ('%s','%s','%s','%s')",
-                user.name,
-                user.email,
-                user.pass,
-                user.role
+                "INSERT INTO product(price, img_url, brand, category) VALUES ('%s','%s','%s','%s')",
+                product.price,
+                product.img_url,
+                product.brand,
+                product.category
         );
         return stmt.executeUpdate(query);
     }
@@ -109,21 +109,9 @@ public class ProductsDao extends Dao{
     public int deleteById(int id) throws SQLException {
         Statement stmt = super.conn.createStatement();
         String query = String.format(
-                "DELETE FROM users WHERE id = ?",
+                "DELETE FROM products WHERE id = ?",
                 id
         );
         return stmt.executeUpdate(query);
-    }
-    
-    public User login(User user) throws SQLException {
-        PreparedStatement stmt = super.conn.prepareStatement("SELECT * FROM users WHERE email = ? and pass = ?");
-        stmt.setString(1, user.getEmail());
-        stmt.setString(2, user.getPass());
-        ResultSet result = stmt.executeQuery();
-        if (result.next()) {
-            return this.selectById(result.getInt("id"));
-        } else {
-            return null;
-        }
     }
 }
