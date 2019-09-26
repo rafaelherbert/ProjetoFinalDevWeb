@@ -83,7 +83,7 @@ public class UsersDao extends Dao{
         User user = (User) object;
         Statement stmt = super.conn.createStatement();
         String query = String.format(
-                "UPDATE users SET name = '?', email = '?', pass = '?', role = '?') WHERE id = ?;",
+                "UPDATE users SET name = '?', email = '?', pass = '?', role = '?' WHERE id = ?;",
                 user.name,
                 user.email,
                 user.pass,
