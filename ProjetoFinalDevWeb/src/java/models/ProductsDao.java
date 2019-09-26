@@ -29,6 +29,8 @@ public class ProductsDao extends Dao{
         while(result.next()){
             Product product = new Product();
             product.setId(result.getInt("id"));
+            product.setName(result.getString("name"));
+            product.setDescription(result.getString("description"));
             product.setPrice(result.getString("price"));
             product.setImg_url(result.getString("img_url"));
             product.setBrand(result.getString("brand"));
@@ -48,6 +50,8 @@ public class ProductsDao extends Dao{
         while (result.next()){
             Product product = new Product();
             product.setId(result.getInt("id"));
+            product.setName(result.getString("name"));
+            product.setDescription(result.getString("description"));
             product.setPrice(result.getString("price"));
             product.setImg_url(result.getString("img_url"));
             product.setBrand(result.getString("brand"));
@@ -66,6 +70,8 @@ public class ProductsDao extends Dao{
         Product product = new Product();
         if (result.next()){
             product.setId(result.getInt("id"));
+            product.setName(result.getString("name"));
+            product.setDescription(result.getString("description"));
             product.setPrice(result.getString("price"));
             product.setImg_url(result.getString("img_url"));
             product.setBrand(result.getString("brand"));
@@ -81,7 +87,7 @@ public class ProductsDao extends Dao{
         Product product = (Product) object;
         Statement stmt = super.conn.createStatement();
         String query = String.format(
-                "UPDATE users SET price = '?', img_url = '?', brand = '?', category = '?') WHERE id = ?;",
+                "UPDATE users SET name = '?', description = '?',  price = '?', img_url = '?', brand = '?', category = '?' WHERE id = ?;",
                 product.price,
                 product.img_url,
                 product.brand,
@@ -96,7 +102,7 @@ public class ProductsDao extends Dao{
         Product product = (Product) object;
         Statement stmt = super.conn.createStatement();
         String query = String.format(
-                "INSERT INTO product(price, img_url, brand, category) VALUES ('%s','%s','%s','%s')",
+                "INSERT INTO product(name, description, price, img_url, brand, category) VALUES ('%s','%s','%s','%s','%s','%s')",
                 product.price,
                 product.img_url,
                 product.brand,

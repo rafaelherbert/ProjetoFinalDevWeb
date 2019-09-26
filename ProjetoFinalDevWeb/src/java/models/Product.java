@@ -8,13 +8,31 @@ package models;
  *
  * @author ramir
  */
-public class Product{
+public class Product extends Model{
     
     int id;
     String price;
     String img_url;
     String brand;
     String category;
+    String name;
+    String description;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public int getId() {
         return id;
@@ -58,8 +76,8 @@ public class Product{
 
     @Override
     public String toString() {
-        return "Product{" + "id=" + id + ", price=" + price + ", img_url=" + img_url + ", brand=" + brand + ", category=" + category + '}';
-    } 
-    
+        return "Product{" + "id=" + id + ", price=" + price + ", img_url=" + img_url + ", brand=" + brand + ", category=" + category + ", name=" + name + ", description=" + description + '}';
+    }
+
           
 }
