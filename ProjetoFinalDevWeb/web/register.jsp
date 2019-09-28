@@ -4,7 +4,7 @@
     Author     : rafae
 --%>
 
-<%@ include file="header.html" %>
+<%@ include file="header.jsp" %>
 
 <form method="POST" action="SessionController">
     <h2>Registro</h2>
@@ -16,4 +16,4 @@
     <p>Já possui uma conta? Faça o <a href="index.jsp">Login</a>.</p>
 </form>
 
-<%@ include file="footer.html" %>
+<%@ include file="footer.jsp" %>

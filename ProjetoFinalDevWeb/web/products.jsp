@@ -4,7 +4,7 @@
     Author     : ramir
 --%>
 
-<%@ include file="header.html" %>
+<%@ include file="header.jsp" %>
 
 <h1>Hello World!</h1>
 <form method="POST">
@@ -17,4 +17,4 @@
     <input type="text" name="category" placeholder="Categoria">
 </form>
 
-<%@ include file="header.html" %>
+<%@ include file="footer.jsp" %>
