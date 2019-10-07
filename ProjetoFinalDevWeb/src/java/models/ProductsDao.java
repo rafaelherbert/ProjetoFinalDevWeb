@@ -5,7 +5,6 @@
  */
 package models;
 
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -101,8 +100,10 @@ public class ProductsDao extends Dao{
     public int insert(Object object) throws SQLException{
         Product product = (Product) object;
         Statement stmt = super.conn.createStatement();
-        String query = String.format(
-                "INSERT INTO product(name, description, price, img_url, brand, category) VALUES ('%s','%s','%s','%s','%s','%s')",
+        String query;
+        query = String.format("INSERT INTO product(name, description, price, img_url, brand, category) VALUES ('%s','%s','%s','%s','%s','%s')",
+                product.name,
+                product.description,
                 product.price,
                 product.img_url,
                 product.brand,
