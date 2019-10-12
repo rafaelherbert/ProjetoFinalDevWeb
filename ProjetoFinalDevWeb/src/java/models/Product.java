@@ -11,7 +11,7 @@ package models;
 public class Product extends Model{
     
     int id;
-    String price;
+    Double price;
     String img_url;
     String brand;
     String category;
@@ -42,11 +42,11 @@ public class Product extends Model{
         this.id = id;
     }
 
-    public String getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Double price) {
         this.price = price;
     }
 

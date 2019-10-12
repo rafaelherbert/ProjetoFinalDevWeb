@@ -32,6 +32,10 @@
         <servlet-name>FavoritesDao</servlet-name>
         <servlet-class>models.FavoritesDao</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProductController</servlet-name>
+        <servlet-class>controllers.ProductController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Product</servlet-name>
         <url-pattern>/Product</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>FavoritesDao</servlet-name>
         <url-pattern>/FavoritesDao</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductController</servlet-name>
+        <url-pattern>/ProductController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

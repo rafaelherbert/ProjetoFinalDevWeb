@@ -11,12 +11,14 @@
 <a href="admin_product_edit.jsp">Criar produto</a>
 <table>
     <thead>
+        <th>#</th>
         <th>Nome</th>
         <th>Descrição</th>
         <th>Preço</th>
         <th>URL da imagem</th>
         <th>Marca</th>
         <th>Categoria</th>
+        <th>Ações</th>
     </thead>
     <%
         ProductsDao products_dao = new ProductsDao();
@@ -24,12 +26,17 @@
         for (Product product:products){
     %>
     <tr>
+        <td><%= product.getId() %></td>
         <td><%= product.getName() %></td>
         <td><%= product.getDescription() %></td>
         <td><%= product.getPrice() %></td>
         <td><%= product.getImg_url() %></td>
         <td><%= product.getBrand() %></td>
         <td><%= product.getCategory() %></td>
+        <td>
+            <a href="admin_product_edit.jsp?id=<%= product.getId() %>">Update<a/>
+            <a href="admin_object_delete.jsp?model=product&id=<%= product.getId() %>">Delete<a/>
+        </td>
     </tr>
     <%
         }
