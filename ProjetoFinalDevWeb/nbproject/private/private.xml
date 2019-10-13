@@ -3,10 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rafae/Documents/NetBeansProjects/projeto_final/ProjetoFinalDevWeb/web/register.jsp</file>
-            <file>file:/C:/Users/rafae/Documents/NetBeansProjects/projeto_final/ProjetoFinalDevWeb/web/META-INF/context.xml</file>
-            <file>file:/C:/Users/rafae/Documents/NetBeansProjects/projeto_final/ProjetoFinalDevWeb/web/index.jsp</file>
-            <file>file:/C:/Users/rafae/Documents/NetBeansProjects/projeto_final/ProjetoFinalDevWeb/src/java/session/UserController.java</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/products.jsp</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/admin_header.jsp</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/UsersDao.java</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/admin_product_edit.jsp</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/SellsDao.java</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/admin_products_dashboard.jsp</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/session/SessionController.java</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/Product.java</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/Favorite.java</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/assets/css/main.css</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/Dao.java</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/FavoritesDao.java</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/ProductsDao.java</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/assets/css/admin.css</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/controllers/ProductController.java</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/RatingsDao.java</file>
         </group>
     </open-files>
 </project-private>

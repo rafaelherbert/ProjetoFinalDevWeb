@@ -9,7 +9,7 @@ package models;
  *
  * @author rafae
  */
-public class User{
+public class User extends Model{
     
     int id;
     String name;

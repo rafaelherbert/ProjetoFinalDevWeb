@@ -12,21 +12,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import models.User;
 import models.UsersDao;
-import static org.apache.jasper.runtime.JspRuntimeLibrary.URLEncode;
 
 /**
  *
  * @author rafae
  */
-@WebServlet(name = "UserController", urlPatterns = {"/UserController"})
-public class UserController extends HttpServlet {
+@WebServlet(name = "SessionController", urlPatterns = {"/SessionController"})
+public class SessionController extends HttpServlet {
     
     UsersDao users_dao;
 
@@ -37,7 +35,7 @@ public class UserController extends HttpServlet {
         try {
             this.users_dao = new UsersDao();
         } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SessionController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -49,10 +47,8 @@ public class UserController extends HttpServlet {
             
             
             User user = new User();
-            user.setName(request.getParameter("name"));
             user.setEmail(request.getParameter("email"));
             user.setPass(request.getParameter("password"));
-            user.setRole("client");
             
             String error = "";
             String feedback = "";
@@ -64,13 +60,21 @@ public class UserController extends HttpServlet {
                         HttpSession user_session = request.getSession(true);
                         user_session.setAttribute("user_email", user.getEmail());
                         user_session.setAttribute("user_name", user.getName());
-                        response.sendRedirect("index.jsp");
+                        user_session.setAttribute("user_role", user.getRole());
+                        String role = user.getRole();
+                        if (role.equals("admin"))
+                            response.sendRedirect("admin/admin_home.jsp");
+                        else
+                            response.sendRedirect("index.jsp");
                     } else {
                         error = "Credenciais inválidas";
                         response.sendRedirect("index.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
                     }
                     break;
                 case "register":
+                    user.setName(request.getParameter("name"));
+                    user.setRole("client");
+
                     if (this.users_dao.insert(user) != 0) {
                         feedback = "Usuário registrado com sucesso! Faça o login para continuar.";
                         response.sendRedirect("index.jsp?feedback=" + URLEncoder.encode(feedback, "UTF-8"));
@@ -82,7 +86,7 @@ public class UserController extends HttpServlet {
             }
             
         } catch (SQLException ex) {
-            Logger.getLogger(UserController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SessionController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
