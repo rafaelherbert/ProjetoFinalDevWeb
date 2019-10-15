@@ -41,33 +41,26 @@ public class ProductController extends HttpServlet {
         try {
             ProductsDao products_dao = new ProductsDao();
             Product product = new Product();
-            
+            product.setName(request.getParameter("name"));
+            product.setPrice(Double.parseDouble(request.getParameter("price")));
+            product.setBrand(request.getParameter("brand"));
+            product.setCategory(request.getParameter("category"));
+            product.setDescription(request.getParameter("description"));
+            product.setImg_url(request.getParameter("img_url"));
+
             switch(request.getParameter("submit"))
             {
                 case "insert":
-                    product.setName(request.getParameter("name"));
-                    product.setPrice(Double.parseDouble(request.getParameter("price")));
-                    product.setBrand(request.getParameter("brand"));
-                    product.setCategory(request.getParameter("category"));
-                    product.setDescription(request.getParameter("description"));
-                    product.setImg_url(request.getParameter("img_url"));
-                    
-                    if (products_dao.insert(product)!= 0)
-                    {
+                    if (products_dao.insert(product)!= 0) {
                         String feedback = "Produto criado com sucesso.";
                         response.sendRedirect("admin/admin_products_dashboard.jsp?feedback=" + URLEncoder.encode(feedback, "UTF-8"));
                     }
                 case "update":
-                    product.setId(Integer.parseInt(request.getParameter("id")));
-                    product.setName(request.getParameter("name"));
-                    product.setPrice(Double.parseDouble(request.getParameter("price")));
-                    product.setBrand(request.getParameter("brand"));
-                    product.setCategory(request.getParameter("category"));
-                    product.setDescription(request.getParameter("description"));
-                    product.setImg_url(request.getParameter("img_url"));
+                    if (!request.getParameter("id").isEmpty()) {
+                        product.setId(Integer.parseInt(request.getParameter("id")));
+                    }
                     
-                    if (products_dao.update(product)!= 0)
-                    {
+                    if (products_dao.update(product)!= 0) {
                         String feedback = "Produto editado com sucesso.";
                         response.sendRedirect("admin/admin_products_dashboard.jsp?feedback=" + URLEncoder.encode(feedback, "UTF-8"));
                     }

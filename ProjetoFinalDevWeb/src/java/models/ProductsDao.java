@@ -89,7 +89,6 @@ public class ProductsDao extends Dao{
     public int update(Object object) throws SQLException {
         Product product = (Product) object;
         PreparedStatement sql = super.conn.prepareStatement("UPDATE products SET name = ?, description = ?,  price = ?, img_url = ?, brand = ?, category = ? WHERE id = ?;");
-        ResultSet result = sql.executeQuery();
         sql.setString(1, product.getName());
         sql.setString(2, product.getDescription());
         sql.setDouble(3, product.getPrice());

@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author ramir
  */
-public class Sell extends Model{
+public class Sell{
     
     int id;
     int user_id;

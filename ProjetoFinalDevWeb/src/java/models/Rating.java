@@ -9,7 +9,7 @@ package models;
  *
  * @author ramir
  */
-public class Rating extends Model{
+public class Rating{
     
     int id;
     int user_id;

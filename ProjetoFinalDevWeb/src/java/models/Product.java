@@ -8,7 +8,7 @@ package models;
  *
  * @author ramir
  */
-public class Product extends Model{
+public class Product{
     
     int id;
     Double price;

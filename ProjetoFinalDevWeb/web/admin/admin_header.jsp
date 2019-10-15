@@ -16,6 +16,10 @@ if (!user_session.getAttribute("user_role").equals("admin"))
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/main.css" />
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/admin.css" />
         <script type="text/javascript" src="${pageContext.request.contextPath}/assets/js/main.js"></script>
+        <script
+        src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+        crossorigin="anonymous"></script>
         <title>JSP Page</title>
     </head>
     <body>

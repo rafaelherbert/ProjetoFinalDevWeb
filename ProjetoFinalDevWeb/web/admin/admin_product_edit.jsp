@@ -49,7 +49,7 @@
     </div>
     <div class="form-group">
         <label for="description">Descrição:</label>
-        <textarea name="description" id="description" value="<%= description %>" required></textarea>
+        <textarea name="description" id="description" required><%= description %></textarea>
     </div>
     <div class="form-group">
         <label for="img_url">Imagem:</label>
