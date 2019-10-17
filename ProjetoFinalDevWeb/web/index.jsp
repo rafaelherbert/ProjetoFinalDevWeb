@@ -9,36 +9,63 @@
 <%@page import="models.UsersDao"%>
 
 <%
-// Verifica se o usu·rio est· logado!
+// Verifica se o usuÔøΩrio estÔøΩ logado!
 boolean logged_in = false;
+String user_name = "";
+String user_role = "";
+
 HttpSession user_session = request.getSession();
-if (user_session.getAttribute("user_email") != null)
+
+if (user_session.getAttribute("user_email") != null) {
     logged_in = true;
+    user_name = (String) user_session.getAttribute("user_name");
+    user_role = (String) user_session.getAttribute("user_role");
+}
+
 %>
 
 <%@ include file="header.jsp" %>
 
-    
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="POST" action="SessionController" id="loginForm">
+                    <input type="hidden" id="accessAction" name="action" value="login">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                            else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                    </div>
+                    <button type="submit" id="formSubmit" class="btn btn-primary">Login</button>
+                    <div id="formLoginQuestion" style="display:none;">
+                        <p>N√£o possui login? <a href="#" id="registerLink">Cadastre-se.</a></p>
+                    </div>
+                    <div id="formRegisterQuestion">
+                        <p>Possui registro? <a href="#" id="loginLink">Fa√ßa login.</a></p>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <% if (request.getParameter("feedback") != null) { %>
-    <div class="feedback"><%= request.getParameter("feedback") %></div>
-    <% } %>
-
-    <% if (request.getParameter("error") != null) { %>
-    <div class="error"><%= request.getParameter("error") %></div>
-    <% } %>
-
-    <% if (logged_in) {%>
-    <h1>Seja bem vindo, <%= user_session.getAttribute("user_name") %>. <a href="SessionController?action=logout">Logout</a></h1>
-    <% } else { %>
-    <form method="POST" action="SessionController">
-        <h2>Login</h2>
-        <input type="hidden" name="action" value="login">
-        <input type="email" name="email" placeholder="E-mail"/>
-        <input type="password" name="password" placeholder="Password"/>
-        <button type="submit">Logar</button>
-        <p>N„o tem uma conta? <a href="register.jsp">Cadastre-se</a>.</p>
-    </form>
-    <% } %>
-    
 <%@ include file="footer.jsp" %>

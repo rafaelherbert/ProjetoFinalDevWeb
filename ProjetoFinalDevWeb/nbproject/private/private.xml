@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rafae/Desktop/projeto_dev_web/ProjetoFinalDevWeb/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/rafae/Desktop/projeto_dev_web/ProjetoFinalDevWeb/nbproject/private/private.properties</file>
-            <file>file:/C:/Users/rafae/Desktop/projeto_dev_web/ProjetoFinalDevWeb/web/admin/admin_product_edit.jsp</file>
-            <file>file:/C:/Users/rafae/Desktop/projeto_dev_web/ProjetoFinalDevWeb/src/java/controllers/ProductController.java</file>
-            <file>file:/C:/Users/rafae/Desktop/projeto_dev_web/ProjetoFinalDevWeb/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/projeto_dev_web_171019/ProjetoFinalDevWeb/web/assets/css/main.css</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/projeto_dev_web_171019/ProjetoFinalDevWeb/web/assets/css/client.css</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/projeto_dev_web_171019/ProjetoFinalDevWeb/web/assets/css/admin.css</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/projeto_dev_web_171019/ProjetoFinalDevWeb/web/admin/admin_header.jsp</file>
+            <file>file:/C:/Users/ramir/Documents/NetBeansProjects/projeto_dev_web_171019/ProjetoFinalDevWeb/web/admin/admin_product_edit.jsp</file>
         </group>
     </open-files>
 </project-private>

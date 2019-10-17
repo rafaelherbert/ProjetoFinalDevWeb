@@ -22,6 +22,7 @@
     // Workaroung to the "null" string issue.
     String id = request.getParameter("id") == null ? "" : request.getParameter("id");
     String name = product.getName() == null ? "" : product.getName();
+    String quantity =  Integer.toString(product.getQuantity()) == null ? "" : Integer.toString(product.getQuantity());
     String price =  product.getPrice() == null ? "" : Double.toString(product.getPrice());
     String brand = product.getBrand() == null ? "" : product.getBrand();
     String description = product.getDescription() == null ? "" : product.getDescription();
@@ -34,6 +35,10 @@
     <div class="form-group">
         <label for="name">Nome:</label>
         <input type="text" name="name" id="name" value="<%= name %>" required/>
+    </div>
+    <div class="form-group">
+        <label for="quantity">Price:</label>
+        <input type="number" name="quantity" id="quantity" value="<%= quantity %>" required/>
     </div>
     <div class="form-group">
         <label for="price">Price:</label>

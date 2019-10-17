@@ -11,6 +11,7 @@ package models;
 public class Product{
     
     int id;
+    int quantity;
     Double price;
     String img_url;
     String brand;
@@ -24,6 +25,14 @@ public class Product{
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+    public int getQuantity() {
+        return quantity;
+    }
+    
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public String getDescription() {

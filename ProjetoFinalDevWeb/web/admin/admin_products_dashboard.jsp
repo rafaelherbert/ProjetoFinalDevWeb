@@ -13,6 +13,7 @@
     <thead>
         <th>#</th>
         <th>Nome</th>
+        <th>Quantidade</th>
         <th>Descrição</th>
         <th>Preço</th>
         <th>URL da imagem</th>
@@ -28,6 +29,7 @@
     <tr>
         <td><%= product.getId() %></td>
         <td><%= product.getName() %></td>
+        <td><%= product.getQuantity() %></td>
         <td><%= product.getDescription() %></td>
         <td><%= product.getPrice() %></td>
         <td><%= product.getImg_url() %></td>

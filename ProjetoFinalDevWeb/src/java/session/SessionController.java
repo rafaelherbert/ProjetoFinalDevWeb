@@ -61,11 +61,7 @@ public class SessionController extends HttpServlet {
                         user_session.setAttribute("user_email", user.getEmail());
                         user_session.setAttribute("user_name", user.getName());
                         user_session.setAttribute("user_role", user.getRole());
-                        String role = user.getRole();
-                        if (role.equals("admin"))
-                            response.sendRedirect("admin/admin_home.jsp");
-                        else
-                            response.sendRedirect("index.jsp");
+                        response.sendRedirect("index.jsp");
                     } else {
                         error = "Credenciais inválidas";
                         response.sendRedirect("index.jsp?error=" + URLEncoder.encode(error, "UTF-8"));

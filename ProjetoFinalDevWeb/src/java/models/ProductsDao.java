@@ -31,6 +31,7 @@ public class ProductsDao extends Dao{
             Product product = new Product();
             product.setId(result.getInt("id"));
             product.setName(result.getString("name"));
+            product.setQuantity(result.getInt("quantity"));
             product.setDescription(result.getString("description"));
             product.setPrice(result.getDouble("price"));
             product.setImg_url(result.getString("img_url"));
@@ -53,6 +54,7 @@ public class ProductsDao extends Dao{
             Product product = new Product();
             product.setId(result.getInt("id"));
             product.setName(result.getString("name"));
+            product.setQuantity(result.getInt("quantity"));
             product.setDescription(result.getString("description"));
             product.setPrice(result.getDouble("price"));
             product.setImg_url(result.getString("img_url"));
@@ -74,6 +76,7 @@ public class ProductsDao extends Dao{
         if (result.next()){
             product.setId(result.getInt("id"));
             product.setName(result.getString("name"));
+            product.setQuantity(result.getInt("quantity"));
             product.setDescription(result.getString("description"));
             product.setPrice(result.getDouble("price"));
             product.setImg_url(result.getString("img_url"));
@@ -88,27 +91,29 @@ public class ProductsDao extends Dao{
     @Override
     public int update(Object object) throws SQLException {
         Product product = (Product) object;
-        PreparedStatement sql = super.conn.prepareStatement("UPDATE products SET name = ?, description = ?,  price = ?, img_url = ?, brand = ?, category = ? WHERE id = ?;");
+        PreparedStatement sql = super.conn.prepareStatement("UPDATE products SET name = ?, quantity = ?, description = ?,  price = ?, img_url = ?, brand = ?, category = ? WHERE id = ?;");
         sql.setString(1, product.getName());
-        sql.setString(2, product.getDescription());
-        sql.setDouble(3, product.getPrice());
-        sql.setString(4, product.getImg_url());
-        sql.setString(5, product.getBrand());
-        sql.setString(6, product.getCategory());
-        sql.setInt(7, product.getId());
+        sql.setInt(2, product.getQuantity());
+        sql.setString(3, product.getDescription());
+        sql.setDouble(4, product.getPrice());
+        sql.setString(5, product.getImg_url());
+        sql.setString(6, product.getBrand());
+        sql.setString(7, product.getCategory());
+        sql.setInt(8, product.getId());
         return sql.executeUpdate();
     }
     
     @Override
     public int insert(Object object) throws SQLException{
         Product product = (Product) object;
-        PreparedStatement sql = super.conn.prepareStatement("INSERT INTO products(name, description, price, img_url, brand, category) VALUES (?,?,?,?,?,?);");
+        PreparedStatement sql = super.conn.prepareStatement("INSERT INTO products(name, quantity, description, price, img_url, brand, category) VALUES (?,?,?,?,?,?,?);");
         sql.setString(1, product.getName());
-        sql.setString(2, product.getDescription());
-        sql.setDouble(3, product.getPrice());
-        sql.setString(4, product.getImg_url());
-        sql.setString(5, product.getBrand());
-        sql.setString(6, product.getCategory());
+        sql.setInt(2, product.getQuantity());
+        sql.setString(3, product.getDescription());
+        sql.setDouble(4, product.getPrice());
+        sql.setString(5, product.getImg_url());
+        sql.setString(6, product.getBrand());
+        sql.setString(7, product.getCategory());
         return sql.executeUpdate();
     }
     

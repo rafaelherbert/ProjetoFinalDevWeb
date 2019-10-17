@@ -42,6 +42,7 @@ public class ProductController extends HttpServlet {
             ProductsDao products_dao = new ProductsDao();
             Product product = new Product();
             product.setName(request.getParameter("name"));
+            product.setQuantity(Integer.parseInt(request.getParameter("quantity")));
             product.setPrice(Double.parseDouble(request.getParameter("price")));
             product.setBrand(request.getParameter("brand"));
             product.setCategory(request.getParameter("category"));
