@@ -39,19 +39,18 @@
             </ul>
 
         <% if (logged_in) { %>
-            <a href="${pageContext.request.contextPath}/admin/admin_home.jsp" class="btn btn-success mr-3">Dashboard</a>
             <div class="dropdown">
-            <% if (user_role.equals("admin")) { %>
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Bem vindo <%= user_name %>!
-            </button>
-            <% } %>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="SessionController?action=logout">Logout</a>            </div>
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Bem vindo <%= user_name %>!
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <% if (user_role.equals("admin")) { %>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/admin_home.jsp">Dashboard</a>
+                        <div class="dropdown-divider"></div>
+                    <% } %>
+                    <a class="dropdown-item" href="SessionController?action=logout">Logout</a></div>
+                </div>
             </div>
         <% } else { %>
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
@@ -66,21 +65,5 @@
             </form> -->
         </div>
     </nav>
-
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col-3">
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        
+    <section class="container my-5">

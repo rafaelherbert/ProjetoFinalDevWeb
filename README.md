@@ -60,4 +60,6 @@ CREATE TABLE IF NOT EXISTS favorites (
   FOREIGN KEY (user_id) REFERENCES users(id),
   FOREIGN KEY (product_id) REFERENCES products(id)
 );
+
+INSERT INTO users(name, email, pass, role) values('admin', 'admin@admin.com', 'admin', 'admin');
 ```
