@@ -1,6 +1,2 @@
-/ProjetoFinalDevWeb/build
-/ProjetoFinalDevWeb/build.old
-/ProjetoFinalDevWeb/nbproject/private/
-/ProjetoFinalDevWeb/dist/
-/storage/*
-
+/nbproject/private/
+/build/
