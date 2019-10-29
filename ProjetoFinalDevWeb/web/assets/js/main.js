@@ -29,6 +29,23 @@ $(document).ready(function(){
         access_action.val("login");
         form_submit.text("Login");
     });
+    
+    $("#add_to_cart").click(function(e) {
+        console.log("daskodasko");
+        var product_id = $(this).data("product_id");
+        
+        e.preventDefault();
+        
+        var ajax = new XMLHttpRequest();
+        ajax.open("GET", "add_to_cart.jsp?product_id=" + product_id + "&action=add", true);
+        ajax.send();
+        ajax.onreadystatechange = function() {
+            if (ajax.readyState == 4 && ajax.status == 200) {
+                var data = ajax.responseText;
+                console.log(data);
+            }
+        }
+    });
 });
 
   

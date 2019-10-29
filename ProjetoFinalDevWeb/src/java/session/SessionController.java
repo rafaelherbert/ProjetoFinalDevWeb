@@ -8,6 +8,8 @@ package session;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -16,6 +18,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import models.Product;
+import models.Sell;
 import models.User;
 import models.UsersDao;
 
@@ -58,9 +62,9 @@ public class SessionController extends HttpServlet {
                 case "login":
                     if ((user = this.users_dao.login(user)) != null) {
                         HttpSession user_session = request.getSession(true);
-                        user_session.setAttribute("user_email", user.getEmail());
-                        user_session.setAttribute("user_name", user.getName());
-                        user_session.setAttribute("user_role", user.getRole());
+                        List<Product> cart = new ArrayList();
+                        user_session.setAttribute("shopping_cart", cart);
+                        user_session.setAttribute("user", user);
                         response.sendRedirect("index.jsp");
                     } else {
                         error = "Credenciais inválidas";

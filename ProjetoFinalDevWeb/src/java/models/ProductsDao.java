@@ -44,29 +44,6 @@ public class ProductsDao extends Dao{
     }
     
     @Override
-    public List query(String query) throws SQLException {
-        List product_list = new ArrayList();
-        
-        Statement stmt = super.conn.createStatement();
-        ResultSet result = stmt.executeQuery(query);
-        
-        while (result.next()){
-            Product product = new Product();
-            product.setId(result.getInt("id"));
-            product.setName(result.getString("name"));
-            product.setQuantity(result.getInt("quantity"));
-            product.setDescription(result.getString("description"));
-            product.setPrice(result.getDouble("price"));
-            product.setImg_url(result.getString("img_url"));
-            product.setBrand(result.getString("brand"));
-            product.setCategory(result.getString("category"));
-            product_list.add(product);
-        }
-        
-        return product_list;
-    }
-    
-    @Override
     public Product selectById(int id) throws SQLException {
         PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM products WHERE id = ?");
         sql.setInt(1, id);

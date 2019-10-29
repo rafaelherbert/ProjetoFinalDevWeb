@@ -12,20 +12,30 @@ package models;
 public class Rating{
     
     int id;
-    int user_id;
-    int product_id;
+    User user;
+    Product product;
     int rating;
+    String comment;
+
 
     public int getId() {
         return id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public int getProduct_id() {
-        return product_id;
+    public Product getProduct() {
+        return product;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public int getRating() {
@@ -36,12 +46,12 @@ public class Rating{
         this.id = id;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public void setProduct_id(int product_id) {
-        this.product_id = product_id;
+    public void setProduct(Product product_id) {
+        this.product = product;
     }
 
     public void setRating(int rating) {
@@ -50,7 +60,7 @@ public class Rating{
 
     @Override
     public String toString() {
-        return "Rating{" + "id=" + id + ", user_id=" + user_id + ", product_id=" + product_id + ", rating=" + rating + '}';
+        return "Rating{" + "id=" + id + ", user_id=" + user + ", product_id=" + product + ", rating=" + rating + '}';
     }
     
     

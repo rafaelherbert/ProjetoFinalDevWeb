@@ -1,12 +1,19 @@
+<%@page import="models.User"%>
 <%@page import="java.net.URLEncoder"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
 // Verifica se o usuário está logado!
-boolean logged_in = false;
 HttpSession user_session = request.getSession();
-if (!user_session.getAttribute("user_role").equals("admin"))
-    response.sendRedirect("../index.jsp?error=" + URLEncoder.encode("Cara, que vacilo.", "UTF-8"));
+User logged_user = null;
+if (user_session != null) {
+    logged_user = (User) user_session.getAttribute("user");
+}
+
+if (logged_user == null) {
+        response.sendRedirect("../index.jsp?error=" + URLEncoder.encode("Cara, que vacilo.", "UTF-8"));
+
+}
 %>
 
 <!DOCTYPE html>

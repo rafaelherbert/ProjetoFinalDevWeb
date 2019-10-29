@@ -30,7 +30,7 @@ import models.ProductsDao;
  */
 @WebServlet(name = "ProductController", urlPatterns = {"/ProductController"})
 @MultipartConfig(
-    location = "C:\\Users\\rafae\\Desktop\\projeto_devWeb\\ProjetoFinalDevWeb\\web\\storage"
+    location = "C:\\dev\\ProjetoFinalDevWeb\\ProjetoFinalDevWeb\\web\\storage"
 )
 public class ProductController extends HttpServlet {
 

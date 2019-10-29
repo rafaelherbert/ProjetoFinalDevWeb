@@ -23,7 +23,6 @@ abstract class Dao extends Database{
     }
     
     abstract List getAll() throws SQLException;
-    abstract List query(String query) throws SQLException;
     abstract Object selectById(int id) throws SQLException;
     abstract int update(Object object) throws SQLException;
     abstract int insert(Object object) throws SQLException;

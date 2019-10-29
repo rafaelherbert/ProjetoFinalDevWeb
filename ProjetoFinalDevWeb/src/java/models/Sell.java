@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package models;
-import java.util.Date;
 
 /**
  *
@@ -13,63 +12,54 @@ import java.util.Date;
 public class Sell{
     
     int id;
-    int user_id;
-    int product_id;
-    int quantify;
-    java.util.Date creation_date = new java.util.Date();
-    java.sql.Date sqlDate = new java.sql.Date(creation_date.getTime());
+    User user;
+    Product product;
+    int quantity;
+    String creation_date;
 
     public int getId() {
         return id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public int getProduct_id() {
-        return product_id;
+    public Product getProduct() {
+        return product;
     }
 
-    public int getQuantify() {
-        return quantify;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public Date getCreation_date() {
+    public String getCreation_date() {
         return creation_date;
-    }
-
-    public java.sql.Date getSqlDate() {
-        return sqlDate;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public void setProduct_id(int product_id) {
-        this.product_id = product_id;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public void setQuantify(int quantify) {
-        this.quantify = quantify;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public void setCreation_date(Date creation_date) {
+    public void setCreation_date(String creation_date) {
         this.creation_date = creation_date;
-    }
-
-    public void setSqlDate(java.sql.Date sqlDate) {
-        this.sqlDate = sqlDate;
     }
 
     @Override
     public String toString() {
-        return "Sell{" + "id=" + id + ", user_id=" + user_id + ", product_id=" + product_id + ", quantify=" + quantify + ", creation_date=" + creation_date + ", sqlDate=" + sqlDate + '}';
+        return "Sell{" + "id=" + id + ", user=" + user + ", product=" + product + ", quantity=" + quantity + ", creation_date=" + creation_date + '}';
     }
     
    

@@ -12,38 +12,36 @@ package models;
 public class Favorite {
     
     int id;
-    int user_id;
-    int product_id;
+    User user;
+    Product product;
 
     public int getId() {
         return id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public int getProduct_id() {
-        return product_id;
+    public Product getProduct() {
+        return product;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public void setProduct_id(int product_id) {
-        this.product_id = product_id;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     @Override
     public String toString() {
-        return "Favorite{" + "id=" + id + ", user_id=" + user_id + ", product_id=" + product_id + '}';
+        return "Favorite{" + "id=" + id + ", user_id=" + user + ", product_id=" + product + '}';
     }
-    
-    
     
 }

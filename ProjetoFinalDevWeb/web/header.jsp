@@ -1,3 +1,16 @@
+<%@page import="models.User"%>
+<%
+    // Verifica se o usu�rio est� logado!
+    HttpSession user_session = request.getSession();
+    User logged_user = null;
+    if (user_session != null) {
+        logged_user = (User) user_session.getAttribute("user");
+    }
+%>
+
+<%@ include file="admin/config.jsp" %>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -11,9 +24,9 @@
 </head>
 
 <body>
-
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Projeto Dev Web</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}">Projeto Dev Web</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -21,34 +34,40 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Homepage</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Categorias
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
+                        <%
+                            for(String category:CATEGORIES_ARRAY) {
+                        %>
+                               <a class="dropdown-item" href="${pageContext.request.contextPath}?category=<%= category %>">
+                                   <%= category %>
+                               </a>
+                        <%
+                            }
+                        %>
+<!--                        <a class="dropdown-item" href="#">Another action</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Something else here</a>-->
                     </div>
                 </li>
             </ul>
 
-        <% if (logged_in) { %>
+        <% if (logged_user != null) { %>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Bem vindo <%= user_name %>!
+                    Bem vindo <%= logged_user.getName() %>!
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <% if (user_role.equals("admin")) { %>
+                    <% if (logged_user.getRole().equals("admin")) { %>
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/admin/admin_home.jsp">Dashboard</a>
                         <div class="dropdown-divider"></div>
                     <% } %>
+                    <a class="dropdown-item" href="cart.jsp">Carrinho</a>
                     <a class="dropdown-item" href="SessionController?action=logout">Logout</a></div>
                 </div>
             </div>
@@ -66,4 +85,49 @@
         </div>
     </nav>
         
-    <section class="container my-5">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="SessionController" id="loginForm">
+                        <input type="hidden" id="accessAction" name="action" value="login">
+                        <div class="form-group" id="name-form-group" style='display:none;'>
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Email address</label> 
+                            <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                placeholder="Enter email">
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <button type="submit" id="formSubmit" class="btn btn-primary">Login</button>
+                        <div id="formLoginQuestion">
+                            <p>Não possui login? <a href="#" id="registerLink">Cadastre-se.</a></p>
+                        </div>
+                        <div id="formRegisterQuestion" style="display:none;">
+                            <p>Possui registro? <a href="#" id="loginLink">Faça login.</a></p>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Toast message -->
