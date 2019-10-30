@@ -69,6 +69,7 @@
                         <div class="dropdown-divider"></div>
                     <% } %>
                     <a class="dropdown-item" href="cart.jsp">Carrinho</a>
+                    <a class="dropdown-item" href="user.jsp">Conta</a>
                     <a class="dropdown-item" href="SessionController?action=logout">Logout</a></div>
                 </div>
             </div>

@@ -24,6 +24,30 @@ public class FavoritesDao extends Dao{
     
     public FavoritesDao() throws SQLException, ClassNotFoundException {
     }
+    
+    public List getFavoritesByUserId(int user_id) throws SQLException {
+        try {
+            PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM favorites WHERE user_id = ?");
+            sql.setInt(1, user_id);
+            ResultSet result = sql.executeQuery();
+            UsersDao users_dao = new UsersDao();
+            ProductsDao products_dao = new ProductsDao();
+            List favorites = new ArrayList();
+            
+            while(result.next()) {
+                Favorite favorite = new Favorite();
+                favorite.setId(result.getInt("id"));
+                favorite.setUser(users_dao.selectById(result.getInt("user_id")));
+                favorite.setProduct(products_dao.selectById(result.getInt("product_id")));
+                favorites.add(favorite);
+            }
+            
+            return favorites;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(FavoritesDao.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 
     @Override
     public List getAll() throws SQLException {

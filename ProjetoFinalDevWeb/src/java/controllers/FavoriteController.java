@@ -59,18 +59,25 @@ public class FavoriteController extends HttpServlet {
                 return;
             }
             String product_id_str = request.getParameter("product_id");
+            String favorite_id_str = request.getParameter("favorite_id");
             String action = request.getParameter("action");
+            
             FavoritesDao favorites_dao = new FavoritesDao();
             Favorite favorite = new Favorite();
+            
             ProductsDao products_dao = new ProductsDao();
-            Product product = products_dao.selectById(Integer.parseInt(product_id_str));
+            Product product = null;
+            
+            if (product_id_str != null)
+                product = products_dao.selectById(Integer.parseInt(product_id_str));
             
             if (action.equals("add")) {
                 favorite.setProduct(product);
                 favorite.setUser(this.logged_user);
                 favorites_dao.insert(favorite);
             } else if (action.equals("remove")) {
-                favorites_dao.deleteById(Integer.parseInt(product_id_str));
+                if (favorite_id_str != null)
+                    favorites_dao.deleteById(Integer.parseInt(favorite_id_str));
             }
             
             response.sendRedirect(request.getParameter("referer"));

@@ -27,6 +27,32 @@ public class SellsDao extends Dao{
     
     public SellsDao() throws SQLException, ClassNotFoundException {
     }
+    
+    public List getSellsByUserId(int user_id) throws SQLException {
+        try {
+            PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM sells WHERE user_id = ?");
+            sql.setInt(1, user_id);
+            ResultSet result = sql.executeQuery();
+            UsersDao users_dao = new UsersDao();
+            ProductsDao products_dao = new ProductsDao();
+            List sells = new ArrayList();
+            
+            while(result.next()) {
+                Sell sell = new Sell();
+                sell.setId(result.getInt("id"));
+                sell.setUser(users_dao.selectById(result.getInt("user_id")));
+                sell.setProduct(products_dao.selectById(result.getInt("product_id")));
+                sell.setQuantity(result.getInt("quantity"));
+                sell.setCreation_date(result.getString("creation_date"));
+                sells.add(sell);
+            }
+            
+            return sells;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(FavoritesDao.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
 
     @Override
     public List getAll() throws SQLException {
@@ -44,9 +70,6 @@ public class SellsDao extends Dao{
                 sell.setProduct(products_dao.selectById(result.getInt("product_id")));
                 sell.setQuantity(result.getInt("quantity"));
                 sell.setCreation_date(result.getString("creation_date"));
-//                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
-//                LocalDateTime now = LocalDateTime.now();  
-//                sell.setCreation_date(dtf.format(now));
                 sells.add(sell);
             }
             

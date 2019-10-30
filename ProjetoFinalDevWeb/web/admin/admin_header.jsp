@@ -11,9 +11,10 @@ if (user_session != null) {
 }
 
 if (logged_user == null) {
-        response.sendRedirect("../index.jsp?error=" + URLEncoder.encode("Cara, que vacilo.", "UTF-8"));
-
+    response.sendRedirect("/ProjetoFinalDevWeb/index.jsp?login=true&alert=Disallowed");
+    return;
 }
+
 %>
 
 <!DOCTYPE html>

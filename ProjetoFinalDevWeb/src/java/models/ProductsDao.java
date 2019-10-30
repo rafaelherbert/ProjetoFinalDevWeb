@@ -17,7 +17,46 @@ import java.util.List;
  */
 public class ProductsDao extends Dao{
     
+    
+    int pagination_items_per_page = 5;
+    public int number_of_pages = 0;
+    
     public ProductsDao() throws SQLException, ClassNotFoundException {
+    }
+    
+     public List getPage(int current_page) throws SQLException{
+        List product_list = new ArrayList();
+        int start = pagination_items_per_page * current_page;
+        int end = start + pagination_items_per_page;
+                
+        PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM products");
+        ResultSet result = sql.executeQuery();
+        
+        while(result.next()){
+            Product product = new Product();
+            product.setId(result.getInt("id"));
+            product.setName(result.getString("name"));
+            product.setQuantity(result.getInt("quantity"));
+            product.setDescription(result.getString("description"));
+            product.setPrice(result.getDouble("price"));
+            product.setImg_url(result.getString("img_url"));
+            product.setBrand(result.getString("brand"));
+            product.setCategory(result.getString("category"));
+            product_list.add(product);
+        }
+        
+        int rest = product_list.size() % pagination_items_per_page;
+        this.number_of_pages = product_list.size() / pagination_items_per_page;
+        if (rest > 0) this.number_of_pages++;
+
+        if (end > product_list.size())
+            end = product_list.size();
+        if (start > product_list.size() || current_page < 0) {
+            product_list.clear();
+            return product_list;
+        }
+        
+        return product_list.subList(start, end);
     }
     
     @Override

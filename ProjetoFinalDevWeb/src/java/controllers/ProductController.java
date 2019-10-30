@@ -20,9 +20,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import models.Product;
 import models.ProductsDao;
+import models.User;
 
 /**
  *
@@ -33,6 +35,18 @@ import models.ProductsDao;
     location = "C:\\dev\\ProjetoFinalDevWeb\\ProjetoFinalDevWeb\\web\\storage"
 )
 public class ProductController extends HttpServlet {
+    
+    HttpSession user_session;
+    User logged_user;
+    
+    boolean auth(HttpServletRequest request) {
+        // Verifica se o usuï¿½rio estï¿½ logado!
+        this.user_session = request.getSession();
+        if (this.user_session != null) {
+            this.logged_user = (User) user_session.getAttribute("user");
+        }
+        return this.logged_user != null;
+    }
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -49,6 +63,12 @@ public class ProductController extends HttpServlet {
         // Not working yet. We'll need to work on this.
         
         try {
+            
+            if (!this.auth(request)) {
+                response.sendRedirect("/ProjetoFinalDevWeb/index.jsp?login=true&alert=Disallowed");
+                return;
+            }
+            
             ProductsDao products_dao = new ProductsDao();
             Product product = new Product();
             product.setName(request.getParameter("name"));

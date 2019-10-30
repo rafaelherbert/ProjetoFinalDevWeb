@@ -12,8 +12,8 @@ package models;
 public class Sell{
     
     int id;
-    User user;
-    Product product;
+    public User user;
+    public Product product;
     int quantity;
     String creation_date;
 

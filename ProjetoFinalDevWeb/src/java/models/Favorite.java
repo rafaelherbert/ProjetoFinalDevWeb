@@ -12,8 +12,8 @@ package models;
 public class Favorite {
     
     int id;
-    User user;
-    Product product;
+    public User user;
+    public Product product;
 
     public int getId() {
         return id;

@@ -13,7 +13,11 @@
 <%
    
 ProductsDao products_dao = new ProductsDao();
-List<Product> products = products_dao.getAll();
+
+int current_page = request.getParameter("current_page") != null ? Integer.parseInt(request.getParameter("current_page")) : 0;
+List<Product> products = products_dao.getPage(current_page);
+int total_pages = products_dao.number_of_pages;
+
 
 %>
 
@@ -39,6 +43,30 @@ List<Product> products = products_dao.getAll();
     <%
         }
     %>
+    </div>
+    
+    <div class="row d-flex mt-5">
+                <nav aria-label="...">
+          <ul class="pagination">
+            <li class="page-item <%= current_page == 0 ? "disabled":"" %>">
+              <a class="page-link" href=href="/ProjetoFinalDevWeb/?current_page=<%= current_page - 1 %>" tabindex="-1" <%= current_page == 0 ? "aria-disabled='true'":"" %>>Previous</a>
+            </li>
+            <%
+                for (int i = 0; i < total_pages; i++) {
+                    %>
+                        <li class="page-item <%= i == current_page?"active":"" %>">
+                            <a class="page-link" href="/ProjetoFinalDevWeb/?current_page=<%= i %>">
+                                <%= i + 1 %>
+                            </a>
+                        </li>
+                    <%
+                }
+            %>
+            <li class="page-item <%= current_page == total_pages - 1 ? "disabled":"" %>">
+              <a class="page-link" href="/ProjetoFinalDevWeb/?current_page=<%= current_page + 1 %>" <%= current_page == total_pages - 1 ? "aria-disabled='true'":""%>>Next</a>
+            </li>
+  </ul>
+</nav>
     </div>
 
 </section>
