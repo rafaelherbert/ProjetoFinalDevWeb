@@ -26,7 +26,7 @@ public class FavoritesDao extends Dao{
     }
 
     @Override
-    List getAll() throws SQLException {
+    public List getAll() throws SQLException {
         try {
             PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM favorites");
             ResultSet result = sql.executeQuery();
@@ -50,7 +50,7 @@ public class FavoritesDao extends Dao{
     }
 
     @Override
-    Object selectById(int id) throws SQLException {
+    public Object selectById(int id) throws SQLException {
         try {
             PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM favorites WHERE id = ?");
             sql.setInt(1, id);
@@ -73,7 +73,7 @@ public class FavoritesDao extends Dao{
     }
 
     @Override
-    int update(Object object) throws SQLException {
+    public int update(Object object) throws SQLException {
         Favorite favorite = (Favorite) object;
         PreparedStatement sql = super.conn.prepareStatement("UPDATE favorites SET user_id = ?, product_id = ? WHERE id = ?;");
         sql.setInt(1, favorite.user.getId());
@@ -83,7 +83,7 @@ public class FavoritesDao extends Dao{
     }
 
     @Override
-    int insert(Object object) throws SQLException {
+    public int insert(Object object) throws SQLException {
         Favorite favorite = (Favorite) object;
         PreparedStatement sql = super.conn.prepareStatement("INSERT INTO favorites(user_id, product_id) VALUES (?, ?);");
         sql.setInt(1, favorite.user.getId());
@@ -92,7 +92,7 @@ public class FavoritesDao extends Dao{
     }
 
     @Override
-    int deleteById(int id) throws SQLException {
+    public int deleteById(int id) throws SQLException {
         PreparedStatement sql = super.conn.prepareStatement("DELETE FROM favorites WHERE id = ?");
         sql.setInt(1, id);
         return sql.executeUpdate();

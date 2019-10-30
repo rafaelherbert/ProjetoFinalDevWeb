@@ -55,7 +55,6 @@ public class SessionController extends HttpServlet {
             user.setPass(request.getParameter("password"));
             
             String error = "";
-            String feedback = "";
             
             switch(request.getParameter("action"))
             {
@@ -68,7 +67,7 @@ public class SessionController extends HttpServlet {
                         response.sendRedirect("index.jsp");
                     } else {
                         error = "Credenciais inválidas";
-                        response.sendRedirect("index.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
+                        response.sendRedirect("index.jsp?login=true&alert=" + URLEncoder.encode(error, "UTF-8"));
                     }
                     break;
                 case "register":
@@ -76,11 +75,10 @@ public class SessionController extends HttpServlet {
                     user.setRole("client");
 
                     if (this.users_dao.insert(user) != 0) {
-                        feedback = "Usuário registrado com sucesso! Faça o login para continuar.";
-                        response.sendRedirect("index.jsp?feedback=" + URLEncoder.encode(feedback, "UTF-8"));
+                        response.sendRedirect("index.jsp");
                     } else {
                         error = "Credenciais inválidas";
-                        response.sendRedirect("index.jsp?error=" + URLEncoder.encode(error, "UTF-8"));
+                        response.sendRedirect("index.jsp?login=true&alert=" + URLEncoder.encode(error, "UTF-8"));
                     }
                     break;
             }

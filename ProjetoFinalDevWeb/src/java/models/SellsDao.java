@@ -29,7 +29,7 @@ public class SellsDao extends Dao{
     }
 
     @Override
-    List getAll() throws SQLException {
+    public List getAll() throws SQLException {
         try {
             PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM sells");
             ResultSet result = sql.executeQuery();
@@ -58,7 +58,7 @@ public class SellsDao extends Dao{
     }
 
     @Override
-    Object selectById(int id) throws SQLException {
+    public Object selectById(int id) throws SQLException {
        try {
             PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM sells");
             ResultSet result = sql.executeQuery();
@@ -72,9 +72,7 @@ public class SellsDao extends Dao{
                 sell.setProduct(products_dao.selectById(result.getInt("product_id")));
                 sell.setQuantity(result.getInt("quantity"));
                 sell.setCreation_date(result.getString("creation_date"));
-//                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  ;
-//                LocalDateTime now = LocalDateTime.now();  
-//                sell.setCreation_date(dtf.format(now));
+
             }
             
             return sell;
@@ -85,7 +83,7 @@ public class SellsDao extends Dao{
     }
 
     @Override
-    int update(Object object) throws SQLException {
+    public int update(Object object) throws SQLException {
         Sell sell = (Sell) object;
         PreparedStatement sql = super.conn.prepareStatement("UPDATE sells SET user_id = ?, product_id = ?, quantity = ?, creation_date WHERE id = ?;");
         sql.setInt(1, sell.user.getId());
@@ -97,7 +95,7 @@ public class SellsDao extends Dao{
     }
 
     @Override
-    int insert(Object object) throws SQLException {
+    public int insert(Object object) throws SQLException {
         Sell sell = (Sell) object;
         PreparedStatement sql = super.conn.prepareStatement("INSERT INTO sells(user_id, product_id, quantity, creation_date) VALUES (?, ?, ?, ?);");
         sql.setInt(1, sell.user.getId());
@@ -108,7 +106,7 @@ public class SellsDao extends Dao{
     }
 
     @Override
-    int deleteById(int id) throws SQLException {
+    public int deleteById(int id) throws SQLException {
         PreparedStatement sql = super.conn.prepareStatement("DELETE FROM sells WHERE id = ?");
         sql.setInt(1, id);
         return sql.executeUpdate();

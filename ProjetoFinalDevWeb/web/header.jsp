@@ -1,3 +1,4 @@
+<%@page import="models.UsersDao"%>
 <%@page import="models.User"%>
 <%
     // Verifica se o usu�rio est� logado!
@@ -72,7 +73,7 @@
                 </div>
             </div>
         <% } else { %>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login_modal">
             Login
         </button>
         <% } %>
@@ -85,8 +86,8 @@
         </div>
     </nav>
         
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    <!-- Login Modal -->
+    <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -97,34 +98,64 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <% if (request.getParameter("alert") != null) { %>
+                    <div class="alert alert-danger" role="alert">
+                        <%= request.getParameter("alert") %>
+                    </div>
+                    <% } %>
                     <form method="POST" action="SessionController" id="loginForm">
                         <input type="hidden" id="accessAction" name="action" value="login">
                         <div class="form-group" id="name-form-group" style='display:none;'>
                             <label for="name">Name</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Password">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Name">
                         </div>
                         <div class="form-group">
                             <label for="name">Email address</label> 
                             <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp"
-                                placeholder="Enter email">
+                                placeholder="Enter email" required>
                             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
                                 else.</small>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" name="password" class="form-control" id="password" placeholder="Password">
+                            <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
                         </div>
                         <button type="submit" id="formSubmit" class="btn btn-primary">Login</button>
                         <div id="formLoginQuestion">
                             <p>Não possui login? <a href="#" id="registerLink">Cadastre-se.</a></p>
                         </div>
                         <div id="formRegisterQuestion" style="display:none;">
-                            <p>Possui registro? <a href="#" id="loginLink">Faça login.</a></p>
+                            <p>Possui registro? <a href="#" id="loginLink">Fa�a login.</a></p>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+                    
+    <div class="modal fade" id="cart_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Carrinho</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="alert alert-success" role="alert">
+                        Um novo item foi adicionado ao seu carrinho de compras.
+                    </div>
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="/ProjetoFinalDevWeb/cart.jsp" class="btn btn-success">Carrinho de compras</a>
                 </div>
             </div>
         </div>

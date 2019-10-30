@@ -3,12 +3,35 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rafae/Desktop/projeto_devWeb/ProjetoFinalDevWeb/src/java/models/Dao.java</file>
-            <file>file:/C:/Users/rafae/Desktop/projeto_devWeb/ProjetoFinalDevWeb/nbproject/build-impl.xml</file>
-            <file>file:/C:/Users/rafae/Desktop/projeto_devWeb/ProjetoFinalDevWeb/src/java/database/Database.java</file>
-            <file>file:/C:/Users/rafae/Desktop/projeto_devWeb/ProjetoFinalDevWeb/src/conf/MANIFEST.MF</file>
-            <file>file:/C:/Users/rafae/Desktop/projeto_devWeb/ProjetoFinalDevWeb/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/rafae/Desktop/projeto_devWeb/ProjetoFinalDevWeb/web/META-INF/context.xml</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/RatingsDao.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/SellsDao.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/Rating.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/add_to_cart.jsp</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/controllers/ProductController.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/User.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/UsersDao.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/assets/js/main.js</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/Favorite.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/product.jsp</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/assets/css/admin.css</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/Dao.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/admin_products_dashboard.jsp</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/index.jsp</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/assets/js/cart.js</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/assets/css/main.css</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/cart.jsp</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/Sell.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/header.jsp</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/Product.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/admin_header.jsp</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/config.jsp</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/ProductsDao.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/admin_home.jsp</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/admin_object_delete.jsp</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/FavoritesDao.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/assets/css/client.css</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/session/SessionController.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/footer.jsp</file>
         </group>
     </open-files>
 </project-private>

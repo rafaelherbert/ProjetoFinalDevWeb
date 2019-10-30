@@ -102,4 +102,12 @@ public class UsersDao extends Dao{
             return null;
         }
     }
+    
+    public boolean isFavorite(User user, Product product) throws SQLException {
+        PreparedStatement stmt = super.conn.prepareStatement("SELECT * FROM favorites WHERE user_id = ? and product_id = ?");
+        stmt.setInt(1, user.getId());
+        stmt.setInt(2, product.getId());
+        ResultSet result = stmt.executeQuery();
+        return result.next();
+    }
 }

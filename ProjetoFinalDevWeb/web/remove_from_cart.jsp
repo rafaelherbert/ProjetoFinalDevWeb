@@ -1,4 +1,10 @@
 <%-- 
+    Document   : remove_from_cart.jsp
+    Created on : 29/10/2019, 21:16:00
+    Author     : rafae
+--%>
+
+<%-- 
     Document   : add_to_cart
     Created on : 28/10/2019, 23:12:14
     Author     : rafae
@@ -17,39 +23,28 @@
         logged_user = (User) user_session.getAttribute("user");
     }
     
-    // JSON response
-    response.setContentType("application/json");
-
     if (logged_user != null) {
         String product_id_str = request.getParameter("product_id");
-        String temp_quantity_str = request.getParameter("temp_quantity");
-
-        if (product_id_str == null || temp_quantity_str == null) {
-            response.getWriter().write("{\"response\":\"Not enough parameters.\"}");
-            return;
-        }
-        
         int product_id = Integer.parseInt(product_id_str);
-        int temp_quantity = Integer.parseInt(temp_quantity_str);
         List<Product> cart = (ArrayList) user_session.getAttribute("shopping_cart");
         ProductsDao products_dao = new ProductsDao();
         Product product = products_dao.selectById(product_id);
-        product.setTemp_quantity(temp_quantity);
+        Product product_to_remove = null;
 
         for (Product prod:cart) {
             if(prod.getId() == product.getId()) {
-                response.getWriter().write("{\"response\":\"Product already in cart.\"}");
-                return;
+                product_to_remove = prod;
             }
         }
-
-        cart.add(product);
-        System.out.println(cart);
+        
+        cart.remove(product_to_remove);
         user_session.setAttribute("shopping_cart", cart);
-        response.getWriter().write("{\"response\":true}");
+        response.sendRedirect("/ProjetoFinalDevWeb/cart.jsp");
+        
     } else {
-        response.getWriter().write("{\"response\":false}");
+        response.sendRedirect("/ProjetoFinalDevWeb/index.jsp?login=true&alert=Acesso invalido.");
         return;
     }
 
 %>
+            

@@ -12,6 +12,7 @@ public class Product{
     
     int id;
     int quantity;
+    int temp_quantity; // Used to know how much of each product a client will buy.
     Double price;
     String img_url;
     String brand;
@@ -29,6 +30,14 @@ public class Product{
     
     public int getQuantity() {
         return quantity;
+    }
+
+    public int getTemp_quantity() {
+        return temp_quantity;
+    }
+
+    public void setTemp_quantity(int temp_quantity) {
+        this.temp_quantity = temp_quantity;
     }
     
     public void setQuantity(int quantity) {
@@ -85,8 +94,7 @@ public class Product{
 
     @Override
     public String toString() {
-        return "Product{" + "id=" + id + ", price=" + price + ", img_url=" + img_url + ", brand=" + brand + ", category=" + category + ", name=" + name + ", description=" + description + '}';
+        return "Product{" + "id=" + id + ", quantity=" + quantity + ", temp_quantity=" + temp_quantity + ", price=" + price + ", img_url=" + img_url + ", brand=" + brand + ", category=" + category + ", name=" + name + ", description=" + description + '}';
     }
-
           
 }
