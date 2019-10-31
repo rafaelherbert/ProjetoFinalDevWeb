@@ -12,8 +12,8 @@ package models;
 public class Rating{
     
     int id;
-    User user;
-    Product product;
+    public User user;
+    public Product product;
     int rating;
     String comment;
 
@@ -50,7 +50,7 @@ public class Rating{
         this.user = user;
     }
 
-    public void setProduct(Product product_id) {
+    public void setProduct(Product product) {
         this.product = product;
     }
 

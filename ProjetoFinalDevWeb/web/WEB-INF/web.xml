@@ -40,6 +40,10 @@
         <servlet-name>FavoriteController</servlet-name>
         <servlet-class>controllers.FavoriteController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RatingController</servlet-name>
+        <servlet-class>controllers.RatingController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Product</servlet-name>
         <url-pattern>/Product</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>FavoriteController</servlet-name>
         <url-pattern>/FavoriteController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RatingController</servlet-name>
+        <url-pattern>/RatingController</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

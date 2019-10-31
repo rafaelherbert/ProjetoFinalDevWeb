@@ -53,10 +53,12 @@ public class SellController extends HttpServlet {
     
     private void new_sell (HttpServletRequest request, HttpServletResponse response) throws IOException {
            try {
+               
             if (!this.auth(request)) {
                 response.sendRedirect("/ProjetoFinalDevWeb/index.jsp?login=true&alert=Disallowed");
                 return;
             }
+            
             List<Product> shopping_cart = (List<Product>) this.user_session.getAttribute("shopping_cart");;
             SellsDao sells_dao = new SellsDao();
             Sell sell = null;
@@ -76,7 +78,7 @@ public class SellController extends HttpServlet {
             
             shopping_cart.clear();
             user_session.setAttribute("shopping_cart", shopping_cart);
-            response.sendRedirect("/ProjetoFinalDevWeb/index.jsp?info=Compra realizada com sucesso!");
+            response.sendRedirect("/ProjetoFinalDevWeb/index.jsp?notify_mode=success&notify_message=Compra realizada com sucesso!");
         } catch (SQLException ex) {
             Logger.getLogger(SellController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {

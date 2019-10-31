@@ -10,6 +10,7 @@
 <%@ include file="admin_header.jsp" %>
 <div class="row">
     <a href="admin_product_edit.jsp" class="btn btn-success mb-3">Criar produto</a>
+    <div class="table-responsive">
     <table class="table">
         <thead>
             <th>#</th>
@@ -45,5 +46,6 @@
         }
     %>
     </table>
+    </div>
 </div>
 <%@ include file="admin_footer.jsp" %>

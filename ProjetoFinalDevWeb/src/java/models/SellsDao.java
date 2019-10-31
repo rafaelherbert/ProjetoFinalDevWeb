@@ -81,9 +81,10 @@ public class SellsDao extends Dao{
     }
 
     @Override
-    public Object selectById(int id) throws SQLException {
+    public Sell selectById(int id) throws SQLException {
        try {
-            PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM sells");
+            PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM sells WHERE id = ?");
+            sql.setInt(1, id);
             ResultSet result = sql.executeQuery();
             UsersDao users_dao = new UsersDao();
             ProductsDao products_dao = new ProductsDao();

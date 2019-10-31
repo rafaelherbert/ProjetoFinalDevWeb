@@ -7,6 +7,7 @@
     if (user_session != null) {
         logged_user = (User) user_session.getAttribute("user");
     }
+    UsersDao users_dao = new UsersDao();
 %>
 
 <%@ include file="admin/config.jsp" %>
@@ -42,10 +43,10 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <%
-                            for(String category:CATEGORIES_ARRAY) {
+                            for(String category_str:CATEGORIES_ARRAY) {
                         %>
-                               <a class="dropdown-item" href="${pageContext.request.contextPath}?category=<%= category %>">
-                                   <%= category %>
+                               <a class="dropdown-item" href="${pageContext.request.contextPath}?current_page=0&category=<%= category_str %>">
+                                   <%= category_str %>
                                </a>
                         <%
                             }

@@ -3,6 +3,9 @@
     Created on : 28/10/2019, 22:04:15
     Author     : rafae
 --%>
+<%@page import="models.Rating"%>
+<%@page import="models.RatingsDao"%>
+<%@page import="java.util.List"%>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 .checked {
@@ -19,7 +22,10 @@
     int product_id = Integer.parseInt(request.getParameter("id"));
     ProductsDao products_dao = new ProductsDao();
     Product product = products_dao.selectById(product_id);
-    UsersDao users_dao = new UsersDao();
+    List<Product> products = products_dao.getProductsByCategory(product.getCategory());
+    RatingsDao ratings_dao = new RatingsDao();
+    List<Rating> ratings = ratings_dao.getRatingsByProductId(product.getId());
+    int product_rating = products_dao.getAverageRating(product);
     int is_favorite = -1;
     if (logged_user != null)
         is_favorite = users_dao.isFavorite(logged_user, product);
@@ -41,7 +47,7 @@
                     <span class="fa fa-star" data-star_value="3"></span>
                     <span class="fa fa-star" data-star_value="4"></span>
                     <span class="fa fa-star" data-star_value="5"></span>
-                     0 / 5
+                    <span id="rating_value"><%= product_rating %></span> / 5
                 </div>
                 <hr>
                 <h2>R$ <%= product.getPrice() %></h2>
@@ -74,7 +80,17 @@
             <div class="p-3" style="border-radius:5px;background-color:white;">
                 <h5>Ver mais</h5>
                 <hr>
-                <!-- Display more products of the same caregory -->
+                <% for (Product product2:products) { %>
+                <div class="text-center">
+                    <h6><%= product2.getName() %></h6>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a href="/ProjetoFinalDevWeb/product.jsp?id=<%= product2.getId() %>">
+                        <img class="img-fluid" src="<%= product2.getImg_url() %>">
+                    </a>
+                </div>
+                <hr>
+                <% } %>
             </div>
         </div>
         <div class="col-md-8">
@@ -82,6 +98,20 @@
                 <h5>Avaliações<h5>
                 <hr>
                 <!-- Display the ratings -->
+                <% for (Rating rating:ratings) { %>
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <% for (int i = 0; i < rating.getRating() ; i++) { %>
+                              <span class="fa fa-star checked"></span>
+                        <% } %>
+                    </div>
+                    <div>
+                        <h5><%= rating.user.getName() %></h5>
+                    </div>
+                </div>
+                <p style="color:grey;"><%= rating.getComment() %></p>
+                <hr>
+                <% } %>
             </div>
         </div>
     </div>

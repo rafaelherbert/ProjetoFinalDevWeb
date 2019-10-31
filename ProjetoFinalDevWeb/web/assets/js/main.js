@@ -49,10 +49,39 @@ $(document).ready(function(){
                     window.location = window.location.href + "&login=true&alert=Realize o login para continuar.";
                 } else if (response.response == true) {
                     $("#cart_modal").modal("show");
+                } else {
+                    window.location = window.location.href + "&notify_mode=success&notify_message=Item já adicionado ao carrinho.";
                 }
             }
         }
     });
+    
+    $("#stars_group > [data-star_value!=\"\"]").each(function(){
+        $(this).click(function(){
+            var current_value = $(this).data("star_value");
+            $("#stars_group > [data-star_value!=\"\"]").each(function(){
+                if ($(this).data("star_value") > current_value) $(this).removeClass("checked");
+                else $(this).addClass("checked");
+            });
+            $("#rating_input").val(current_value);
+            $("#rating_value").text(current_value);
+        });
+        if ($(this).data("star_value") == $("#rating_value").text())
+            $(this).click();
+    });
+   
+    var notify_mode = findGetParameter("notify_mode");
+    var notify_message = findGetParameter("notify_message");
+    
+    if (notify_mode && notify_message) {
+        console.log("dsokdasoks");
+        $("#notifier > #message").text(notify_message);
+        $("#notifier").addClass("alert-" + notify_mode);
+        $("#notifier").show();
+        setTimeout(function(){
+            $("#notifier").hide("slow");
+        }, 3000);
+    }
 });
 
 

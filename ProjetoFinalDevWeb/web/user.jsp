@@ -19,9 +19,7 @@
 
 <section class="container my-5">
     <div class="row">
-        <h1> Bem vindo, <%= logged_user.getName() %>.</h1>
-        <h2> Configurações da conta </h2>
-        <h2> Produtos Favoritos </h2>
+        <h2 class="mb-5"> Produtos Favoritos </h2>
         
         <table class="table">
             <thead>
@@ -44,7 +42,7 @@
         %>
         </table>
         
-        <h2> Compras realizadas </h2>
+        <h2  class="mb-5"> Compras realizadas </h2>
         
         <table class="table">
             <thead>
@@ -65,7 +63,7 @@
                 <td><%= sell.product.getPrice() %></td>
                 <td><%= (double) sell.getQuantity() * sell.product.getPrice() %></td>
                 <td>
-                    <a href="#">Avaliar Produto</a>
+                    <a href="/ProjetoFinalDevWeb/rate_product.jsp?id=<%= sell.product.getId() %>">Avaliar Produto</a>
                 </td>
             </tr>
             <%

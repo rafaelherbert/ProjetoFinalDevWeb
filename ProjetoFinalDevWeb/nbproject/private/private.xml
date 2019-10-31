@@ -6,6 +6,8 @@
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/RatingsDao.java</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/SellsDao.java</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/Rating.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/controllers/RatingController.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/user.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/add_to_cart.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/controllers/ProductController.java</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/User.java</file>
@@ -22,10 +24,12 @@
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/assets/css/main.css</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/cart.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/Sell.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/admin_product_edit.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/header.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/Product.java</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/controllers/FavoriteController.java</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/admin_header.jsp</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/rate_product.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/config.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/remove_from_cart.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/ProductsDao.java</file>

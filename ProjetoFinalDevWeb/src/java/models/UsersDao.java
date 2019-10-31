@@ -114,4 +114,16 @@ public class UsersDao extends Dao{
         }
         return favorite_id;
     }
+    
+    public int isRated(User user, Product product) throws SQLException {
+        PreparedStatement stmt = super.conn.prepareStatement("SELECT * FROM ratings WHERE user_id = ? and product_id = ?");
+        stmt.setInt(1, user.getId());
+        stmt.setInt(2, product.getId());
+        ResultSet result = stmt.executeQuery();
+        int rating_id = -1;
+        if (result.next()) {
+            rating_id = result.getInt("id");
+        }
+        return rating_id;
+    }
 }

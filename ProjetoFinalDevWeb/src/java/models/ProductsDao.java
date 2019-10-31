@@ -24,6 +24,42 @@ public class ProductsDao extends Dao{
     public ProductsDao() throws SQLException, ClassNotFoundException {
     }
     
+    public List getPageFromCategory(int current_page, String category) throws SQLException{
+        List product_list = new ArrayList();
+        int start = pagination_items_per_page * current_page;
+        int end = start + pagination_items_per_page;
+                
+        PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM products WHERE category = ?");
+        sql.setString(1, category);
+        ResultSet result = sql.executeQuery();
+        
+        while(result.next()){
+            Product product = new Product();
+            product.setId(result.getInt("id"));
+            product.setName(result.getString("name"));
+            product.setQuantity(result.getInt("quantity"));
+            product.setDescription(result.getString("description"));
+            product.setPrice(result.getDouble("price"));
+            product.setImg_url(result.getString("img_url"));
+            product.setBrand(result.getString("brand"));
+            product.setCategory(result.getString("category"));
+            product_list.add(product);
+        }
+        
+        int rest = product_list.size() % pagination_items_per_page;
+        this.number_of_pages = product_list.size() / pagination_items_per_page;
+        if (rest > 0) this.number_of_pages++;
+
+        if (end > product_list.size())
+            end = product_list.size();
+        if (start > product_list.size() || current_page < 0) {
+            product_list.clear();
+            return product_list;
+        }
+        
+        return product_list.subList(start, end);
+    }
+    
      public List getPage(int current_page) throws SQLException{
         List product_list = new ArrayList();
         int start = pagination_items_per_page * current_page;
@@ -57,6 +93,29 @@ public class ProductsDao extends Dao{
         }
         
         return product_list.subList(start, end);
+    }
+     
+    public List getProductsByCategory(String category) throws SQLException{
+        List product_list = new ArrayList();
+        
+        PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM products WHERE category = ? LIMIT 5");
+        sql.setString(1, category);
+        ResultSet result = sql.executeQuery();
+        
+        while(result.next()){
+            Product product = new Product();
+            product.setId(result.getInt("id"));
+            product.setName(result.getString("name"));
+            product.setQuantity(result.getInt("quantity"));
+            product.setDescription(result.getString("description"));
+            product.setPrice(result.getDouble("price"));
+            product.setImg_url(result.getString("img_url"));
+            product.setBrand(result.getString("brand"));
+            product.setCategory(result.getString("category"));
+            product_list.add(product);
+        }
+        
+        return product_list;
     }
     
     @Override
@@ -138,5 +197,13 @@ public class ProductsDao extends Dao{
         PreparedStatement sql = super.conn.prepareStatement("DELETE FROM products WHERE id = ?");
         sql.setInt(1, id);
         return sql.executeUpdate();
+    }
+    
+    public int getAverageRating(Product product) throws SQLException {
+        PreparedStatement sql = super.conn.prepareStatement("SELECT AVG(rating) as avg_rating FROM ratings WHERE product_id = ?");
+        sql.setInt(1, product.getId());
+        ResultSet result = sql.executeQuery();
+        if (result.next()) return (int) Math.round(result.getDouble("avg_rating"));
+        else return -1;
     }
 }

@@ -24,9 +24,62 @@ public class RatingsDao extends Dao{
     
     public RatingsDao() throws SQLException, ClassNotFoundException {
     }
+    
+    public List getRatingsByProductId(int product_id) throws SQLException {
+        try {
+            PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM ratings WHERE product_id = ?");
+            sql.setInt(1, product_id);
+            ResultSet result = sql.executeQuery();
+            UsersDao users_dao = new UsersDao();
+            ProductsDao products_dao = new ProductsDao();
+            List ratings = new ArrayList();
+            
+            while(result.next()) {
+                Rating rating = new Rating();
+                rating.setId(result.getInt("id"));
+                rating.setUser(users_dao.selectById(result.getInt("user_id")));
+                rating.setProduct(products_dao.selectById(result.getInt("product_id")));
+                rating.setRating(result.getInt("rating"));
+                rating.setComment(result.getString("comment"));
+                ratings.add(rating);
+            }
+            
+            return ratings;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(FavoritesDao.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
+    public List getRatingsByUserId(int user_id) throws SQLException {
+        try {
+            PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM ratings WHERE id = ?");
+            sql.setInt(1, user_id);
+            ResultSet result = sql.executeQuery();
+            UsersDao users_dao = new UsersDao();
+            ProductsDao products_dao = new ProductsDao();
+            List ratings = new ArrayList();
+            
+            while(result.next()) {
+                Rating rating = new Rating();
+                rating.setId(result.getInt("id"));
+                rating.setUser(users_dao.selectById(result.getInt("user_id")));
+                rating.setProduct(products_dao.selectById(result.getInt("product_id")));
+                rating.setRating(result.getInt("rating"));
+                rating.setComment(result.getString("comment"));
+                ratings.add(rating);
+            }
+            
+            return ratings;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(FavoritesDao.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+
 
     @Override
-    List getAll() throws SQLException {
+    public List getAll() throws SQLException {
         try {
             PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM ratings");
             ResultSet result = sql.executeQuery();
@@ -52,9 +105,10 @@ public class RatingsDao extends Dao{
     }
 
     @Override
-    Object selectById(int id) throws SQLException {
+    public Rating selectById(int id) throws SQLException {
         try {
-            PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM ratings");
+            PreparedStatement sql = super.conn.prepareStatement("SELECT * FROM ratings WHERE id = ?");
+            sql.setInt(1, id);
             ResultSet result = sql.executeQuery();
             UsersDao users_dao = new UsersDao();
             ProductsDao products_dao = new ProductsDao();
@@ -76,7 +130,7 @@ public class RatingsDao extends Dao{
     }
 
     @Override
-    int update(Object object) throws SQLException {
+    public int update(Object object) throws SQLException {
         Rating rating = (Rating) object;
         PreparedStatement sql = super.conn.prepareStatement("UPDATE ratings SET user_id = ?, product_id = ?, rating = ?, comment = ? WHERE id = ?;");
         sql.setInt(1, rating.user.getId());
@@ -88,7 +142,7 @@ public class RatingsDao extends Dao{
     }
 
     @Override
-    int insert(Object object) throws SQLException {
+    public int insert(Object object) throws SQLException {
         Rating rating = (Rating) object;
         PreparedStatement sql = super.conn.prepareStatement("INSERT INTO ratings(user_id, product_id, rating, comment) VALUES (?, ?, ?, ?);");
         sql.setInt(1, rating.user.getId());
@@ -99,7 +153,7 @@ public class RatingsDao extends Dao{
     }
 
     @Override
-    int deleteById(int id) throws SQLException {
+    public int deleteById(int id) throws SQLException {
         PreparedStatement sql = super.conn.prepareStatement("DELETE FROM ratings WHERE id = ?");
         sql.setInt(1, id);
         return sql.executeUpdate();

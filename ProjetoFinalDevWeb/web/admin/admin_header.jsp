@@ -56,4 +56,4 @@ if (logged_user == null) {
         <a class="nav-link" href="../SessionController?action=logout">Logout</a>
     </nav>
     
-    <section class="container my-5">
+    <section class="container my-5" style="max-width:1400px;">
