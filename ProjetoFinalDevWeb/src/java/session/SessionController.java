@@ -26,6 +26,12 @@ import models.UsersDao;
 /**
  *
  * @author rafae
+ * 
+ * 
+ * Servlet responsável por gerenciar os logins e cadastros.
+ * 
+ * 
+ * 
  */
 @WebServlet(name = "SessionController", urlPatterns = {"/SessionController"})
 public class SessionController extends HttpServlet {

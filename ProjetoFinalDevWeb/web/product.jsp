@@ -19,6 +19,9 @@
 <%@ include file="header.jsp" %>
 
 <%
+    /**
+     * Recuperando os dados do produto para serem exibidos na tela.
+     */
     int product_id = Integer.parseInt(request.getParameter("id"));
     ProductsDao products_dao = new ProductsDao();
     Product product = products_dao.selectById(product_id);

@@ -7,10 +7,13 @@
 <%@page import="models.Product"%>
 <%@ include file="header.jsp" %>
 <%
+    // Verifica se o usuário está logado
     if (logged_user == null) {
         response.sendRedirect(getServletContext().getContextPath() + "?login=true&alert=Disallowed");
         return;
     }
+    
+    // Recuperando os dados do banco de dados para exibir nas tables.
     SellsDao sells_dao = new SellsDao();
     List<Sell> sells = sells_dao.getSellsByUserId(logged_user.getId());
     FavoritesDao favorites_dao = new FavoritesDao();

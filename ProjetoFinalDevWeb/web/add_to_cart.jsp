@@ -2,6 +2,11 @@
     Document   : add_to_cart
     Created on : 28/10/2019, 23:12:14
     Author     : rafae
+
+    Essa página é utilizada para inserir produtos no carrinho.
+    Essa é a única página que é acessada via requisição assíncrona no trabalho (Ajax)
+    Ela retorna o json equivalente com o procedimento que foi feito no script.
+
 --%>
 
 <%@page import="models.User"%>

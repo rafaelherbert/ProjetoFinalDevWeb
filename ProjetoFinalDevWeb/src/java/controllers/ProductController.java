@@ -78,6 +78,10 @@ public class ProductController extends HttpServlet {
             product.setCategory(request.getParameter("category"));
             product.setDescription(request.getParameter("description"));
             
+            
+            // O bloco de código abaixo faz o upload da imagem e a armazena com o hashmd5 do
+            // nome da imagem enviada concatenado com o nome do produto.
+            
             // Handling image
             Part filePart = request.getPart("img_url");
             
@@ -102,7 +106,7 @@ public class ProductController extends HttpServlet {
                 case "insert":
                     if (products_dao.insert(product)!= 0) {
                         String feedback = "Produto criado com sucesso.";
-                        response.sendRedirect("admin/admin_products_dashboard.jsp?feedback=" + URLEncoder.encode(feedback, "UTF-8"));
+                        response.sendRedirect("/ProjetoFinalDevWeb/admin/admin_products_dashboard.jsp?feedback=" + URLEncoder.encode(feedback, "UTF-8"));
                     }
                 case "update":
                     if (!request.getParameter("id").isEmpty()) {
@@ -111,7 +115,7 @@ public class ProductController extends HttpServlet {
                     
                     if (products_dao.update(product)!= 0) {
                         String feedback = "Produto editado com sucesso.";
-                        response.sendRedirect("admin/admin_products_dashboard.jsp?feedback=" + URLEncoder.encode(feedback, "UTF-8"));
+                        response.sendRedirect("/ProjetoFinalDevWeb/admin/admin_products_dashboard.jsp?feedback=" + URLEncoder.encode(feedback, "UTF-8"));
                     }
                     break;
             }

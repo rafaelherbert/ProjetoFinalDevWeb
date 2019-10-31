@@ -6,6 +6,7 @@
 // Verifica se o usuário está logado!
 HttpSession user_session = request.getSession();
 User logged_user = null;
+
 if (user_session != null) {
     logged_user = (User) user_session.getAttribute("user");
 }
@@ -32,7 +33,7 @@ if (logged_user == null) {
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Admin</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -53,6 +54,7 @@ if (logged_user == null) {
                 </li>
             </ul>
         </div>
+        <a class="nav-link" href="/ProjetoFinalDevWeb/index.jsp">Homepage</a>
         <a class="nav-link" href="../SessionController?action=logout">Logout</a>
     </nav>
     

@@ -14,6 +14,10 @@
    
 ProductsDao products_dao = new ProductsDao();
 
+/**
+ * Recupera a página atual da paginação.
+ * A implementação da paginação está basicamente no ProductsDao.
+*/
 int current_page = request.getParameter("current_page") != null ? Integer.parseInt(request.getParameter("current_page")) : 0;
 String category = request.getParameter("category");
 List<Product> products = null;

@@ -16,7 +16,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%
-    // Verifica se o usuï¿½rio estï¿½ logado!
+    // Verifica de o usuário está logado
     HttpSession user_session = request.getSession();
     User logged_user = null;
     if (user_session != null) {
@@ -24,6 +24,7 @@
     }
     
     if (logged_user != null) {
+        // Se o usuário estiver logado, recupera o carrinho e remove o produto com o product_id enviado no requisição.
         String product_id_str = request.getParameter("product_id");
         int product_id = Integer.parseInt(product_id_str);
         List<Product> cart = (ArrayList) user_session.getAttribute("shopping_cart");

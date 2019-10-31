@@ -6,7 +6,6 @@
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/RatingsDao.java</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/SellsDao.java</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/Rating.java</file>
-            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/controllers/RatingController.java</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/user.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/add_to_cart.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/controllers/ProductController.java</file>
@@ -14,15 +13,13 @@
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/UsersDao.java</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/assets/js/main.js</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/Favorite.java</file>
-            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/product.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/assets/css/admin.css</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/product.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/Dao.java</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/controllers/SellController.java</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/admin_products_dashboard.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/index.jsp</file>
-            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/assets/js/cart.js</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/assets/css/main.css</file>
-            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/cart.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/Sell.java</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/admin_product_edit.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/header.jsp</file>
@@ -30,12 +27,14 @@
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/controllers/FavoriteController.java</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/admin_header.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/rate_product.jsp</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/WEB-INF/web.xml</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/config.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/remove_from_cart.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/ProductsDao.java</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/admin_home.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/admin/admin_object_delete.jsp</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/models/FavoritesDao.java</file>
+            <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/META-INF/context.xml</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/assets/css/client.css</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/src/java/session/SessionController.java</file>
             <file>file:/C:/dev/ProjetoFinalDevWeb/ProjetoFinalDevWeb/web/footer.jsp</file>

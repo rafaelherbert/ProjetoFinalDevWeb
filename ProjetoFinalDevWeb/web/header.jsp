@@ -1,7 +1,7 @@
 <%@page import="models.UsersDao"%>
 <%@page import="models.User"%>
 <%
-    // Verifica se o usuï¿½rio estï¿½ logado!
+    // Verifica se o usuário está logado!
     HttpSession user_session = request.getSession();
     User logged_user = null;
     if (user_session != null) {
@@ -28,7 +28,7 @@
 <body>
     
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="${pageContext.request.contextPath}">Projeto Dev Web</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}">Casa do esporte</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -124,7 +124,7 @@
                         </div>
                         <button type="submit" id="formSubmit" class="btn btn-primary">Login</button>
                         <div id="formLoginQuestion">
-                            <p>NÃ£o possui login? <a href="#" id="registerLink">Cadastre-se.</a></p>
+                            <p>Não possui login? <a href="#" id="registerLink">Cadastre-se.</a></p>
                         </div>
                         <div id="formRegisterQuestion" style="display:none;">
                             <p>Possui registro? <a href="#" id="loginLink">Faça login.</a></p>
